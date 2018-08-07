@@ -1,5 +1,5 @@
 {
-	"title": "sampleEntry Schema",
+	"title": "jsonEntry Schema",
 	"type": "object",
 	"properties": {
 		"content": {

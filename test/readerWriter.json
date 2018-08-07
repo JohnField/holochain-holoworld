@@ -1,0 +1,41 @@
+{
+  "Tests": [
+    {
+      "Convey": "We can write a new jsonEntry",
+      "Zome": "readerWriter",
+      "FnName": "jsonEntryWrite",
+      "Input": {
+        "content": "this is the entry body",
+        "timestamp": 12345
+      },
+      "Output": "%h%",
+      "Err": null,
+      "ErrMsg": "",
+      "Regexp": "",
+      "Time": 0,
+      "Wait": 0,
+      "Exposure": "public",
+      "Raw": false,
+      "Repeat": 0,
+      "Benchmark": false
+    },
+    {
+      "Convey": "We can read a jsonEntry",
+      "Zome": "readerWriter",
+      "FnName": "jsonEntryRead",
+      "Input": "%h%",
+      "Output": {
+        "content": "this is the entry body",
+        "timestamp": 12345
+      },
+      "Err": null,
+      "ErrMsg": "",
+      "Exposure": "public"
+    }
+  ],
+  "Identity": "",
+  "Fixtures": {
+    "Agents": null
+  },
+  "Benchmark": false
+}
