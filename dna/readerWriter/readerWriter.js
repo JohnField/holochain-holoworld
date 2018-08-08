@@ -9,13 +9,16 @@ function validateCommit(entryType, entry, header, package, sources) {
   return true
 }
 
-function jsonEntryWrite(json) {
+function validatePut(entryType, entry, header, package, sources){
+  return true
+}
+
+function jsonEntryCreate(json) {
   var hash = commit('jsonEntry', json)
   return hash
 }
 
 function jsonEntryRead(hash) {
-  // Entry is private, so get from Local.
-  var holoText = get(hash, { Local: true })
-  return holoText
+  var jsonEntry = get(hash)
+  return jsonEntry
 }

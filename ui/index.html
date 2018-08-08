@@ -1,1 +1,50 @@
-<html><body>Your UI here!</body></html>
+<html>
+
+<head>
+    <script type="text/javascript" src="/hc.js"></script>
+</head>
+<h1>HoloWorld</h1>
+
+<body>
+    <form>
+        <p>Enter the text of the entry</p>
+        <p>This will be stored in Holochain and the hash key for the new entry will be shown</p>
+        <p>in the Hash text box below.</p>
+        <label for="jsonEntryCreate">Entry</label>
+        <input type="text" id="jsonEntryCreate" size="50" value="This text will be saved in Holochain" />
+        <button type="submit" id="submitEntry">Submit</button>
+    </form>
+
+    <form>
+        <p>Press the Read button and the hash key will be used to retrieve the entry</p>
+        <label for="hash">Hash</label>
+        <input type="text" id="hash" size="50" />
+        <button type="submit" id="readEntry">Read</button>
+        <br/>
+        <label for="jsonEntryContent">Content</label>
+        <input type="text" id="jsonEntryContent" />
+        <label for="jsonEntryTimestamp">Time</label>
+        <input type="text" id="jsonEntryTimestamp" />
+    </form>
+
+    <script type="text/javascript">
+        document.getElementById("submitEntry").addEventListener("click", function (event) {
+            event.preventDefault()
+            jsonEntryCreate(
+                { content: document.getElementById('jsonEntryCreate').value, timestamp: Date.now() }
+                , function (hash) {
+                    document.getElementById('hash').value = hash
+                })
+        });
+        document.getElementById("readEntry").addEventListener("click", function (event) {
+            event.preventDefault()
+            jsonEntryRead(document.getElementById('hash').value, function (res) {
+                var jsonEntry = JSON.parse(res)
+                document.getElementById('jsonEntryContent').value = jsonEntry.content
+                document.getElementById('jsonEntryTimestamp').value = new Date(jsonEntry.timestamp).toString()
+            })
+        });
+    </script>
+</body>
+
+</html>

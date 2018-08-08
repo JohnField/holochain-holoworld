@@ -3,7 +3,7 @@
     {
       "Convey": "We can write a new jsonEntry",
       "Zome": "readerWriter",
-      "FnName": "jsonEntryWrite",
+      "FnName": "jsonEntryCreate",
       "Input": {
         "content": "this is the entry body",
         "timestamp": 12345

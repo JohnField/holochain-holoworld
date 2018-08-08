@@ -27,12 +27,12 @@
           "DataFormat": "json",
           "Schema": "",
           "SchemaFile": "readerWriter.json",
-          "Sharing": "private"
+          "Sharing": "public"
         }
       ],
       "Functions": [
         {
-          "Name": "jsonEntryWrite",
+          "Name": "jsonEntryCreate",
           "CallingType": "json",
           "Exposure": "public"
         },
